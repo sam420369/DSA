@@ -13,12 +13,16 @@ node* node::getNextNode() {
 
 void node::display() {
 	node* current = this;
+
+	if (current == NULL) {
+		cout << "Node is empty or not created.";
+	}
 	while (current != NULL) {
 		cout << current->num << " ";
 		current = current->getNextNode();
 	}
-
 	cout << "\n";
+
 
 }
 
@@ -132,7 +136,7 @@ void node::sortedInsert(int val) {
 	temp->num = val;
 	temp->next = nullptr;
 
-	//yo mila
+	
 	/*if (val < current->num) {
 		temp->next = current;
 		*temp = *current;
@@ -150,17 +154,26 @@ void node::sortedInsert(int val) {
 	prev->next = temp;
 }
 
-node::~node() {
+void node::removeNode() {
 	node* current = this;
 	node* temp;
 
-	if (current == NULL) {
-		return;
+	while (current) {
+		temp = current;
+		current = current->next;
+		delete temp;
+	}
+}
+
+void node::removeSpecificNode(int pos) {
+	node* current = this;
+	node* tail = new node;
+
+	for (int i = 0; i < pos - 1; i++) {
+		tail = current;
+		current = current->next;
 	}
 
-	while (current) {
-		temp = current->next;
-		delete current;
-		current = temp;
-	}
+	tail->next = current->next;
+	delete current;
 }

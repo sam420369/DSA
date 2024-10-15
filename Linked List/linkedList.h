@@ -34,7 +34,9 @@ public:
 
 	void sortedInsert(int val);
 
-	~node();
+	void removeNode();
+
+	void removeSpecificNode(int pos);
 };
 
 #endif
