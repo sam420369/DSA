@@ -37,6 +37,10 @@ public:
 	void removeNode();
 
 	void removeSpecificNode(int pos);
+
+	void isSorted();
+
+	void removeDuplicate();
 };
 
 #endif

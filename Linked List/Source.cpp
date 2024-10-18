@@ -133,15 +133,13 @@ void node::sortedInsert(int val) {
 	node* current = this;
 	node* temp = new node;
 
-	temp->num = val;
-	temp->next = nullptr;
-
-	
-	/*if (val < current->num) {
-		temp->next = current;
-		*temp = *current;
+	if (val < current->num) {
+		temp->num = current->num;
+		temp->next = current->next;
+		current->num = val;
+		current->next = temp;
 		return;
-	}*/
+	}
 
 	node* prev = new node;
 
@@ -150,6 +148,7 @@ void node::sortedInsert(int val) {
 		current = current->next;
 	}
 
+	temp->num = val;
 	temp->next = prev->next;
 	prev->next = temp;
 }
@@ -169,11 +168,46 @@ void node::removeSpecificNode(int pos) {
 	node* current = this;
 	node* tail = new node;
 
-	for (int i = 0; i < pos - 1; i++) {
+	for (int i = 0; i < pos - 1 && pos < length(); i++) {
 		tail = current;
 		current = current->next;
 	}
 
 	tail->next = current->next;
 	delete current;
+}
+
+
+void node::isSorted() {
+	int len = length();
+	node* current = this;
+	int x = INT_MIN;
+
+	for (int i = 0; i < len && current; i++) {
+		if (x > current->num) {
+			cout << "Not Sorted" << endl;
+			return;
+		}
+		x = current->num;
+		current = current->next;
+	}
+
+	cout << "Sorted" << endl;
+}
+
+void node::removeDuplicate() {
+	node* tail = this;
+	node* head = tail->next;
+
+	while (head != NULL) {
+		if (head->num != tail->num) {
+			tail = head;
+			head = head->next;
+		}
+		else {
+			tail->next = head->next;
+			delete head;
+			head = tail->next;
+		}
+	}
 }
