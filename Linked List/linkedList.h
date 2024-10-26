@@ -41,6 +41,12 @@ public:
 	void isSorted();
 
 	void removeDuplicate();
+
+	void reverseLinkedListArr();
+
+	void reverseLinkedListSlidingPointers();
+
+	void joinLinkedList(node *x);
 };
 
 #endif

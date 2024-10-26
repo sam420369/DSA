@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "linkedList.h"
 
 using namespace std;
@@ -210,4 +211,51 @@ void node::removeDuplicate() {
 			head = tail->next;
 		}
 	}
+}
+
+void node::reverseLinkedListArr() {
+	node* current = this;
+	vector<int> A(current->length());
+
+	int i = 0;
+
+	while (current) {
+		A.at(i++) = current->num;
+		current = current->next;
+	}
+
+	current = this;
+	i--;
+
+	while (current) {
+		current->num = A.at(i--);
+		current = current->next;
+	}
+}
+
+void node::reverseLinkedListSlidingPointers() {
+	node* head = this;
+	node* body = NULL;
+	node* tail = NULL;
+
+	while (head != NULL) {
+		tail = body;
+		body = head;
+		head = head->next;
+
+		body->next = tail;	
+	}
+	
+	*this = *body;
+}
+
+void node::joinLinkedList(node *x) {
+	node* current = this;
+	node* appendage = x;
+
+	while (current->next) {
+		current = current->next;
+	}
+
+	current->next = appendage;
 }
