@@ -9,20 +9,18 @@ int main()
 	node* node2 = new node;
 	node* node3 = new node;
 	node* node4 = new node;
-	node* appendage = new node;
-
 
 	node1->num = 1;
 	node2->num = 2;
 	node3->num = 3;
 	node4->num = 4;
-	appendage->num = 100;
 
 	node1->setNextNode(node2);
 	node2->setNextNode(node3);
 	node3->setNextNode(node4);
+	//node4->setNextNode(node1);
 
-	node1->display();
+	node1->isLoop();
 
 	return 0;
 }

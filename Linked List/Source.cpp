@@ -258,4 +258,61 @@ void node::joinLinkedList(node *x) {
 	}
 
 	current->next = appendage;
+	appendage = NULL;
 }
+
+void node::mergeSortedLinkedList(node* second) {
+	node* first = this;
+	node* head = NULL;
+	node* connector = NULL;
+
+	if (first->num < second->num) {
+		head = connector = first;
+		first = first->next;
+		connector->next = NULL;
+	}
+	else {
+		head = connector = second;
+		second = second->next;
+		connector->next = NULL;
+	}
+
+	while (first && second) {
+		if (first->num < second->num) {
+			connector->next = first;
+			connector = first;
+			first = first->next;
+			connector->next = NULL;
+		}
+		else {
+			connector->next = second;
+			connector = second;
+			second = second->next;
+			connector->next = NULL;
+		}
+	}
+
+	if (first) {
+		connector->next = first;
+	}
+	else {
+		connector->next = second;
+	}
+}
+
+void node::isLoop() {
+	node* current = this;
+	node* jump = this->next->next;
+
+	while (current != jump && jump) {
+		current = current->next;
+		jump = jump->next->next;
+
+		if (jump == current) {
+			cout << "There is loop" << endl;
+			return;
+		}
+	}
+
+	cout << "There is no loop" << endl;
+}	

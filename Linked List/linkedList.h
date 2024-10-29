@@ -47,6 +47,10 @@ public:
 	void reverseLinkedListSlidingPointers();
 
 	void joinLinkedList(node *x);
+
+	void mergeSortedLinkedList(node *second);
+
+	void isLoop();
 };
 
 #endif
