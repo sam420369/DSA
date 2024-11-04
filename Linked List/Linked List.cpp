@@ -18,10 +18,13 @@ int main()
 	node1->setNextNode(node2);
 	node2->setNextNode(node3);
 	node3->setNextNode(node4);
-	//node4->setNextNode(node1);
+	node4->setNextNode(node1);
 
-	node1->isLoop();
+	node1->displayCircularLinkedList();
 
+	node1->deleteNodeInCircularLinkedList(0);
+
+	node1->displayCircularLinkedList();
 	return 0;
 }
 

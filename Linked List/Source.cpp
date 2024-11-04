@@ -243,13 +243,13 @@ void node::reverseLinkedListSlidingPointers() {
 		body = head;
 		head = head->next;
 
-		body->next = tail;	
+		body->next = tail;
 	}
-	
+
 	*this = *body;
 }
 
-void node::joinLinkedList(node *x) {
+void node::joinLinkedList(node* x) {
 	node* current = this;
 	node* appendage = x;
 
@@ -315,4 +315,69 @@ void node::isLoop() {
 	}
 
 	cout << "There is no loop" << endl;
-}	
+}
+
+void node::displayCircularLinkedList() {
+	node* current = this;
+	node* head = this;
+
+	do {
+		cout << current->num << " ";
+		current = current->next;
+	} while (current != head);
+
+	cout << endl;
+}
+
+void node::insertInCircularLinkedList(int data, int pos) {
+	node* current = this;
+	node* temp = new node;
+
+	temp->num = data;
+
+	if (pos == 0) {
+		temp->num = current->num;
+		current->num = data;
+		temp->next = current->next;
+		current->next = temp;
+	}
+	else {
+		for (int i = 0; i < pos - 1; i++) {
+			current = current->next;
+		}
+
+		temp->next = current->next;
+		current->next = temp;
+	}
+}
+
+void node::deleteNodeInCircularLinkedList(int pos) {
+	node* HEAD = this;
+	node* iterator = this;
+	node* temp = NULL;
+
+	if (pos == 0) {
+		if (iterator == HEAD) {
+			delete HEAD;
+			HEAD = nullptr;
+		}
+		else {
+			while (HEAD != iterator->next) {
+				iterator = iterator->next;
+			}
+
+			iterator->next = HEAD->next;
+			delete HEAD;
+			HEAD = iterator->next;
+		}
+	}
+	else {
+		for (int i = 0; i < pos - 1; i++) {
+			HEAD = HEAD->next;
+		}
+
+		temp = HEAD->next;
+		HEAD->next = temp->next;
+		delete temp;
+	}
+}

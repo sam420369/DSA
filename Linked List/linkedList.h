@@ -51,6 +51,12 @@ public:
 	void mergeSortedLinkedList(node *second);
 
 	void isLoop();
+
+	void displayCircularLinkedList();
+
+	void insertInCircularLinkedList(int data, int pos);
+
+	void deleteNodeInCircularLinkedList(int pos);
 };
 
 #endif
