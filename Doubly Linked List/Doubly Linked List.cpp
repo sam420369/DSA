@@ -34,7 +34,7 @@ int main()
 
 	node1->displayDoublyLL();
 
-	node1->deleteDoublyLL(node1, 0);
+	node1->deleteDoublyLL(node1, 1);
 
 	node1->displayDoublyLL();
 

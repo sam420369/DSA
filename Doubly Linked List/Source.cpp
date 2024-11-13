@@ -172,6 +172,18 @@ void node::deleteDoublyLL(node*& head, int pos) {
 		temp = current;
 		current = current->next;
 		current->prev = temp->prev;
-		delete temp;////
+		temp->prev->next = current;
+		delete temp;
+		head = current;
+	}
+	else {
+		for (int i = 0; i < pos; i++) {
+			current = current->next;
+		}
+
+		temp = current;
+		current->prev->next = current->next;
+		current->next->prev = current->prev;
+		delete temp;
 	}
 }
