@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 #include "linkedList.h"
 
 using namespace std;
@@ -380,4 +381,55 @@ void node::deleteNodeInCircularLinkedList(int pos) {
 		HEAD->next = temp->next;
 		delete temp;
 	}
+}
+
+node* node::middleNode() {
+	node* slider = this;
+	node* skipper = this;
+
+	while (skipper) {
+		skipper = skipper->next;
+		if (skipper) {
+			skipper = skipper->next;
+			slider = slider->next;
+		}
+	}
+	cout << "The middle node has data: " << slider->num << endl;
+	return slider;
+}
+
+node* node::intersectingNode(node*& one, node*& two) {
+	node* primary = one;
+	node* secondary = two;
+
+	stack<node*> first;
+	stack<node*> second;
+
+	node* res = NULL;
+
+	while (primary) {
+		first.push(primary);
+		primary = primary->next;
+	}
+
+	while (secondary) {
+		second.push(secondary);
+		secondary = secondary->next;
+	}
+
+	while (first.top() == second.top()) {
+		res = first.top();
+		first.pop();
+		second.pop();
+	}
+
+	if (res) {
+	cout << "The data at the intersecting node is: " << res->num << endl;
+	}
+	else {
+		cout << "There is not intersecting node." << endl;
+		return 0;
+	}
+
+	return res;
 }

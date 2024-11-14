@@ -57,6 +57,10 @@ public:
 	void insertInCircularLinkedList(int data, int pos);
 
 	void deleteNodeInCircularLinkedList(int pos);
+
+	node* middleNode();
+
+	node* intersectingNode(node*& one, node*& two);
 };
 
 #endif
