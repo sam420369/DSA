@@ -169,5 +169,16 @@ public:
 	//~sparseMatrix();
 };
 
+class node {
+private:
+	int column;
+	int num;
+	node* next = NULL;
+public:
+	void create();
+
+	void display();
+};
+
 #endif
 

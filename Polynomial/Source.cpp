@@ -62,11 +62,8 @@ void Polynomial::add(Polynomial x, Polynomial y) {
 
 	while (i < x.totalTerms && j < y.totalTerms) {
 		if (x.t[i].exponent == y.t[j].exponent) {
-			t[z].coeff = x.t[i].coeff + y.t[j].coeff;
-			t[z].exponent = x.t[i].exponent;
-			i++;
-			j++;
-			z++;
+			t[z].coeff = x.t[i].coeff + y.t[j++].coeff;
+			t[z++].exponent = x.t[i++].exponent;
 		}
 		else if (x.t[i].exponent < y.t[j].exponent) {
 			t[z++] = y.t[j++];

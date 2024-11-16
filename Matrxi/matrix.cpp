@@ -1,4 +1,5 @@
 #include "matrix.h"
+#include "vector"
 #include <iostream>
 
 using namespace std;
@@ -402,4 +403,29 @@ void sparseMatrix::add(sparseMatrix x, sparseMatrix y) {
 	}
 
 	setTotalElement(A.size());
+}
+
+void node::create() {
+	node* temp = NULL;
+
+	int total_row = 0;
+	int total_column = 0;
+	int total_elements = 0;
+	char YES = 'x';
+
+	cout << "Enter total number of rows and columns: " << endl;
+	cin >> total_row >> total_column;
+
+	vector<node*> A;
+
+	A.resize(total_row);
+
+	cout << "Enter total number of elements: " << endl;
+	cin >> total_elements;
+
+	for (int i = 0; i < total_elements; i++) {
+		cout << "Enter number and column number: " << endl;
+		cin >> temp->num >> temp->column;
+		A.at(i) = temp;
+	}
 }
