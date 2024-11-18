@@ -5,16 +5,16 @@ using namespace std;
 
 int main()
 {
-    stack one;
+    node* one = new node;
 
-    one.push(1);
-    cout << one.top() << endl;
-    one.push(2);
-    cout << one.top() << endl;
+    one->setData(1);
 
-    cout << one.peek(0) << endl;
-    cout << one.peek(1) << endl; 
-    one.pop();
+    one->push(one, 10);
+    one->push(one, 11);
+
+    one->display();
+
+    cout << one->peek(1) << endl;
 
     return 0;
 }

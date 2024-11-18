@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1465D9B1-1973-42CA-A1D5-238F798A7AE6}|Stack.vcxproj|C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1465D9B1-1973-42CA-A1D5-238F798A7AE6}|Stack.vcxproj|solutionrelative:Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1465D9B1-1973-42CA-A1D5-238F798A7AE6}|Stack.vcxproj|C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\Stack.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1465D9B1-1973-42CA-A1D5-238F798A7AE6}|Stack.vcxproj|solutionrelative:Stack.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1465D9B1-1973-42CA-A1D5-238F798A7AE6}|Stack.vcxproj|C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1465D9B1-1973-42CA-A1D5-238F798A7AE6}|Stack.vcxproj|solutionrelative:Header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1465D9B1-1973-42CA-A1D5-238F798A7AE6}|Stack.vcxproj|C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{1465D9B1-1973-42CA-A1D5-238F798A7AE6}|Stack.vcxproj|solutionrelative:Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,39 +34,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Stack.cpp",
               "DocumentMoniker": "C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\Stack.cpp",
               "RelativeDocumentMoniker": "Stack.cpp",
               "ToolTip": "C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\Stack.cpp",
               "RelativeToolTip": "Stack.cpp",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-14T15:33:00.752Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Header.h",
               "DocumentMoniker": "C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\Header.h",
               "RelativeDocumentMoniker": "Header.h",
               "ToolTip": "C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\Header.h",
               "RelativeToolTip": "Header.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAcwDEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-14T15:33:29.71Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "Source.cpp",
               "DocumentMoniker": "C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\Source.cpp",
               "RelativeDocumentMoniker": "Source.cpp",
               "ToolTip": "C:\\Users\\ACER\\source\\repos\\DSA\\Stack\\Source.cpp",
               "RelativeToolTip": "Source.cpp",
-              "ViewState": "AgIAACsAAAAAAAAAAAAswEAAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAADwv5AAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-14T15:33:19.709Z",
               "EditorCaption": ""

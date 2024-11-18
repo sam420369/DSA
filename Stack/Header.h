@@ -29,5 +29,28 @@ public:
 
 };
 
+class node {
+private:
+	int data = NULL;
+	node* next = nullptr;
+
+public:
+	void setData(int data);
+
+	void isEmpty();
+
+	void isFull();
+
+	void display();
+
+	void push(node*& head, int data);
+
+	void pop(node*& head);
+
+	node* top();
+
+	int peek(int pos);
+};
+
 #endif
 
