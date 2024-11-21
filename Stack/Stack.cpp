@@ -1,20 +1,15 @@
 #include <iostream>
+#include <string>
 #include "Header.h"
 
 using namespace std;
 
 int main()
 {
-    node* one = new node;
+    string exp = "(a+b) * (b+c)";
+    stack one;
 
-    one->setData(1);
-
-    one->push(one, 10);
-    one->push(one, 11);
-
-    one->display();
-
-    cout << one->peek(1) << endl;
+    one.paranthesisMatching(exp);
 
     return 0;
 }
