@@ -1,11 +1,11 @@
 #include <iostream>
 #include "Header.h"
 
-Queue::Queue(int x) : size(x) {
+aQueue::aQueue(int x) : size(x) {
 	q.resize(size);
 }
 
-void Queue::enqueue(int num) {
+void aQueue::enqueue(int num) {
 	if (this->rear == this->size - 1) {
 		std::cerr << "Queue is full" << std::endl;
 		return;
@@ -16,7 +16,7 @@ void Queue::enqueue(int num) {
 	}
 }
 
-void Queue::dequeue() {
+void aQueue::dequeue() {
 	if (this->front == this->rear) {
 		std::cerr << "Queue is empty" << std::endl;
 		return;
@@ -28,7 +28,7 @@ void Queue::dequeue() {
 	front++;
 }
 
-void Queue::display() {
+void aQueue::display() {
 	for (int it = this->front + 1; it <= rear; it++) {
 		std::cout << q.at(it) << std::endl;
 	}
@@ -62,4 +62,172 @@ void circularQueue::display() {
 		std::cout << q[it] << std::endl;
 	}
 
+}
+
+int node::getData() {
+	return this->data;
+}
+
+void node::setData(int x) {
+	this->data = x;
+}
+
+node* node::getNextNode() {
+	return this->next;
+}
+
+void node::setNextNode(node* t) {
+	this->next = t;
+}
+
+void node::setNextNodeNull() {
+	this->next = nullptr;
+}
+
+bool Queue::isEmpty() {
+	if (this->front == nullptr) {
+		return 1;
+	}
+	return 0;
+}
+
+bool Queue::isFull() {
+	node* temp = new node;
+
+	if (!temp) {
+		return 1;
+	}
+	return 0;
+}
+
+void Queue::enqueue(int x) {
+	node* temp = new node;
+
+	if (temp == nullptr) {
+		std::cerr << "Queue is full" << std::endl;
+		return;
+	}
+
+	temp->setData(x);
+	temp->setNextNodeNull();
+
+	if (this->isEmpty()) {
+		front = rear = temp;
+	}
+	else {
+		rear->setNextNode(temp);
+		rear = temp;
+	}
+}
+
+void Queue::dequeue() {
+	if (this->isEmpty()) {
+		std::cerr << "Queue is empty" << std::endl;
+		return;
+	}
+
+	node* temp = this->front;
+
+	this->front = this->front->getNextNode();
+
+	delete temp;
+}
+
+void Queue::display() {
+	node* temp = this->front;
+
+	if (this->isEmpty()) {
+		std::cerr << "Queue is empty" << std::endl;
+		return;
+	}
+
+	while (temp) {
+		std::cout << temp->getData() << std::endl;
+		temp = temp->getNextNode();
+	}
+}
+
+void deQueue::enqueue(int x) {
+	node* temp = new node;
+	temp->setData(x);
+	temp->setNextNode(NULL);
+
+	if (temp == NULL) {
+		std::cerr << "Queue is full" << std::endl;
+		return;
+	}
+
+	if (rear != nullptr) {
+		rear->setNextNode(temp);
+		rear = temp;
+	}
+	else {
+		front = rear = temp;
+	}
+}
+
+void deQueue::dequeue() {
+	if (this->front == nullptr) {
+		std::cerr << "Queue is already empty" << std::endl;
+		return;
+	}
+
+	node* temp = front;
+	front = front->getNextNode();
+	delete temp;
+}
+
+void deQueue::enqueueF(int x) {
+	node* temp = new node;
+	temp->setData(x);
+
+	if (!temp) {
+		std::cerr << "Queue is full" << std::endl;
+		return;
+	}
+
+	if (this->front == nullptr && this->rear == nullptr) {
+		temp->setNextNodeNull();
+		front = rear = temp;
+	}
+	else {
+		temp->setNextNode(front);
+		front = temp;
+	}
+}
+
+void deQueue::dequeueR() {
+	if (rear == nullptr) {
+		std::cerr << "Queue is empty" << std::endl;
+		return;
+	}
+
+	node* temp = this->front;
+
+	while (temp->getNextNode() != nullptr && temp->getNextNode() != this->rear) {
+		temp = temp->getNextNode();
+	}
+
+	if (rear != front) {
+		rear = temp;
+		temp = temp->getNextNode();
+		rear->setNextNodeNull();
+		delete temp;
+	}
+	else {
+		front = rear = nullptr;
+	}
+}
+
+void deQueue::display() {
+	if (front == nullptr) {
+		std::cerr << "Queue is empty" << std::endl;
+		return;
+	}
+
+	node* temp = this->front;
+	while (temp) {
+		std::cout << temp->getData() << std::endl;
+		temp = temp->getNextNode();
+	}
 }

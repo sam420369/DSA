@@ -4,7 +4,8 @@
 #include <iostream>
 #include <vector>
 
-class Queue {
+//using array
+class aQueue {
 private:
 	int size = 0;
 	int front = -1;
@@ -12,7 +13,7 @@ private:
 	std::vector<int> q;
 
 public:
-	Queue(int x);
+	aQueue(int x);
 
 	void enqueue(int num);
 
@@ -38,4 +39,56 @@ public:
 	void display();
 };
 
+class node {
+private:
+	int data = NULL;
+	node* next = nullptr;
+
+public:
+	int getData();
+
+	void setData(int x);
+
+	node* getNextNode();
+
+	void setNextNode(node* t);
+
+	void setNextNodeNull();
+
+};
+
+// using linked list
+class Queue {
+private:
+	node* front = nullptr;
+	node* rear = nullptr;
+public:
+	bool isEmpty();
+
+	bool isFull();
+
+	void enqueue(int x);
+
+	void dequeue();
+
+	void display();
+};
+
+class deQueue {
+private:
+	node* front = nullptr;
+	node* rear = nullptr;
+
+public:
+	void enqueue(int x);
+
+	void dequeue();
+
+	void enqueueF(int x);
+
+	void dequeueR();
+
+	void display();
+};
+	
 #endif // !_QUEUE_H_
