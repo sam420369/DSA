@@ -231,3 +231,46 @@ void deQueue::display() {
 		temp = temp->getNextNode();
 	}
 }
+
+void sQueue::enqueue(int x) {
+	s1.push(x);
+}
+
+void sQueue::dequeue() {
+	if (s1.empty() && s2.empty()) {
+		std::cerr << "Queue is empty" << std::endl;
+		return;
+	}
+
+	if (s2.empty()) {
+		while (!s1.empty()) {
+			s2.push(s1.top());
+			s1.pop();
+		}
+		s2.pop();
+	}
+	else {
+		s2.pop();
+	}
+}
+
+void sQueue::display() {
+	if (s1.empty() && s2.empty()) {
+		std::cerr << "Queue is empty" << std::endl;
+		return;
+	}
+	while (!s2.empty()) {
+		std::cout << s2.top() << std::endl;
+		s2.pop();
+	}
+
+	while (!s1.empty()) {
+		s2.push(s1.top());
+		s1.pop();
+	}
+
+	while (!s2.empty()) {
+		std::cout << s2.top() << std::endl;
+		s2.pop();
+	}
+}

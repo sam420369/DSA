@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stack>
 
 //using array
 class aQueue {
@@ -91,4 +92,16 @@ public:
 	void display();
 };
 	
+class sQueue {
+private:
+	std::stack<int> s1;
+	std::stack<int> s2;
+	
+public:
+	void enqueue(int x);
+
+	void dequeue();
+
+	void display();
+};
 #endif // !_QUEUE_H_
