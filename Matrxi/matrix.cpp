@@ -420,11 +420,16 @@ void node::create() {
 
 	A.resize(total_row);
 
-	cout << "Enter total number of elements: " << endl;
+
+	// use loop in a row and read the elements 
+	// move to the next row and do the same
+	// so start loop from here and update total_elements
+	cout << "Total elements in the row: " << endl;
 	cin >> total_elements;
 
 	for (int i = 0; i < total_elements; i++) {
 		cout << "Enter number and column number: " << endl;
+		// yo ta bha. aba next node pani chaiyo garexaina, tyo gar
 		cin >> temp->num >> temp->column;
 		A.at(i) = temp;
 	}

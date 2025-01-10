@@ -137,6 +137,7 @@ public:
 
 class sparseMatrix {
 private:
+	// i, j = matrix dimensions
 	int i;
 	int j;
 	size_t totalElem;
