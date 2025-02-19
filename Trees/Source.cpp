@@ -83,6 +83,7 @@ void BinaryTree::create() {
 
 }
 
+//using recursion
 void BinaryTree::preOrder(node* root) {
 	node* current = root;
 
@@ -113,47 +114,60 @@ void BinaryTree::postOrder(node* root) {
 	}
 }
 
+//using loop
 void BinaryTree::preOrderL(node* root) {
 	node* current = root;
 	std::stack<node*> st;
 
-	while (current != nullptr) {
-		std::cout << current->getData() << " ";
-		st.push(current);
-
-		if (current->getLeft()) {
+	while (current || !st.empty()) {
+		if (current) {
+			std::cout << current->getData() << " ";
+			st.push(current);
 			current = current->getLeft();
 		}
-		else if (current->getRight()) {
-			current = current->getRight();
-		}
 		else {
-			if (!st.empty()) {
-				current = st.top();
-				st.pop();
-
-				if (current->getRight())
-					current = current->getRight();
-				else {
-					if (!st.empty()) {
-						current = st.top();
-						st.pop();
-						current = current->getRight();
-					}
-				}
-			}
-			else {
-				current = nullptr;
-			}
+			current = st.top();
+			st.pop();
+			current = current->getRight();
 		}
 	}
 }
 
 
 void BinaryTree::inOrderL(node* root) {
+	node* current = root;
+	std::stack<node*> st;
+
+	while (current || !st.empty()) {
+		while (current) {
+			st.push(current);
+			current = current->getLeft();
+		}
+		current = st.top();
+		st.pop();
+		
+		std::cout << current->getData() << " ";
+		current = current->getRight();
+	}
 
 }
 
 void BinaryTree::postOrderL(node* root) {
+	node* current = root;
+	std::stack<node*> st;
+	node* temp = NULL;
+
+	while (!st.empty()) {
+		if (current) {
+			st.push(current);
+			current = current->getLeft();
+		}
+		else {
+			temp = st.top();
+			if (temp > 0) {
+
+			}
+		}
+	}
 
 }

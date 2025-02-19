@@ -7,7 +7,7 @@ int main()
 
 	tree.create();
 
-	tree.preOrderL(tree.getRootNode());
+	tree.inOrderL(tree.getRootNode());
 
 	return 0;
 }
