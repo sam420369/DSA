@@ -44,7 +44,20 @@ public:
 
 	void inOrderL(node* root);
 
-	void postOrderL(node* root);
+	//void postOrderL(node* root);
+
+	void levelOrder(node* root);
+
+	int totalNodes(node* n);
+
+	int height(node* n);
+
+	int leafNode(node* n);
+
+	int totalDegreeTwoNodes(node* n);
+
+	int totalDegreeTwoOrOneNodes(node* n);
+
 };
 
 #endif

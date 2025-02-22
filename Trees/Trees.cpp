@@ -7,7 +7,12 @@ int main()
 
 	tree.create();
 
-	tree.inOrderL(tree.getRootNode());
+	int n = tree.totalNodes(tree.getRootNode());
+
+	int h = tree.height(tree.getRootNode());
+
+	std::cout << "Total nodes: " << n << std::endl;
+	std::cout << "Height: " << h << std::endl;
 
 	return 0;
 }
