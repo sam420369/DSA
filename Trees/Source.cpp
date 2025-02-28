@@ -233,7 +233,7 @@ int BinaryTree::leafNode(node* n) {
 
 	return 0;
 
-} 
+}
 
 int BinaryTree::totalDegreeTwoNodes(node* n) {
 	int x, y;
@@ -265,4 +265,75 @@ int BinaryTree::totalDegreeTwoOrOneNodes(node* n) {
 	}
 
 	return 0;
+}
+
+void BinaryTree::createBST() {
+	node* temp = NULL;
+	node* current = NULL;
+	int data = 0;
+	std::queue<node*> storage;
+
+	std::cout << "Enter data in root node:" << std::endl;
+	std::cin >> data;
+
+	if (data == -1) {
+		std::cout << "Tree is not created" << std::endl;
+		return;
+	}
+
+	temp = new node;
+	temp->setData(data);
+
+	this->root = temp;
+	storage.push(temp);
+
+	do
+	{
+		current = storage.front();
+		storage.pop();
+
+		do {
+			std::cout << "Data in left node: " << std::endl;
+			std::cin >> data;
+		} while (data > current->getData());
+
+		if (data != -1) {
+			temp = new node;
+			temp->setData(data);
+			current->setLeft(temp);
+			storage.push(temp);
+		}
+
+		do {
+			std::cout << "Data in right node: " << std::endl;
+			std::cin >> data;
+		} while (data < current->getData() && data != -1);
+
+		if (data != -1)
+		{
+			temp = new node;
+			temp->setData(data);
+			current->setRight(temp);
+			storage.push(temp);
+		}
+	} while (!storage.empty());
+}
+
+int BinaryTree::search(node* root, int key) {
+	int x;
+
+	if (root == NULL)
+		return 0;
+	else if (key < root->getData())
+		x = search(root->getLeft(), key);
+	else if (key > root->getData())
+		x = search(root->getRight(), key);
+	else
+		return 1;
+
+	return x;
+}
+
+void BinaryTree::insert(node* root, int data) {
+
 }

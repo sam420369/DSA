@@ -34,6 +34,8 @@ public:
 
 	void create();
 
+	void createBST();
+
 	void preOrder(node* root);
 
 	void inOrder(node* root);
@@ -58,6 +60,9 @@ public:
 
 	int totalDegreeTwoOrOneNodes(node* n);
 
+	int search(node* root, int key);
+
+	void insert(node* root, int data);
 };
 
 #endif

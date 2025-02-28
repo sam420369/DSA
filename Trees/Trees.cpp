@@ -1,18 +1,15 @@
 #include <iostream>
 #include "Header.h"
- 
+
 int main()
 {
 	BinaryTree tree;
 
-	tree.create();
+	tree.createBST();
 
-	int n = tree.totalNodes(tree.getRootNode());
+	tree.insert(tree.getRootNode(), 1);
 
-	int h = tree.height(tree.getRootNode());
-
-	std::cout << "Total nodes: " << n << std::endl;
-	std::cout << "Height: " << h << std::endl;
+	tree.preOrderL(tree.getRootNode());
 
 	return 0;
 }
