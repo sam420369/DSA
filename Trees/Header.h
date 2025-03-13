@@ -62,7 +62,17 @@ public:
 
 	int search(node* root, int key);
 
-	void insert(node* root, int data);
+	void insert(int data);
+
+	node* recursiveInsert(node* root, int data);
+
+	node* inorderPredecessor(node* node);
+
+	node* inorderSuccessor(node* node);
+
+	node* removeNode(node* root, int data);
+
+	void getTree();
 };
 
 #endif

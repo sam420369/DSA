@@ -5,9 +5,7 @@ int main()
 {
 	BinaryTree tree;
 
-	tree.createBST();
-
-	tree.insert(tree.getRootNode(), 1);
+	tree.getTree();
 
 	tree.preOrderL(tree.getRootNode());
 

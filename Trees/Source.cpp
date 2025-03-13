@@ -334,6 +334,141 @@ int BinaryTree::search(node* root, int key) {
 	return x;
 }
 
-void BinaryTree::insert(node* root, int data) {
+void BinaryTree::insert(int data) {
+	node* current = this->getRootNode();
+	node* tail = NULL;
+
+	while (current) {
+		tail = current;
+		if (data == current->getData())
+			return;
+		else if (data < current->getData())
+			current = current->getLeft();
+		else
+			current = current->getRight();
+	}
+
+	node* temp = new node;
+	temp->setData(data);
+	if (data < tail->getData())
+		tail->setLeft(temp);
+	else
+		tail->setRight(temp);
+}
+
+node* BinaryTree::recursiveInsert(node* root, int data) {
+	if (root == NULL) {
+		node* temp = new node;
+		temp->setData(data);
+		root = temp;
+	}
+	else if (data < root->getData()) {
+		root->setLeft(recursiveInsert(root->getLeft(), data));
+	}
+	else if (data > root->getData()) {
+		root->setRight(recursiveInsert(root->getRight(), data));
+	}
+	else {
+		std::cout << "Data cannot be duplicated." << std::endl;
+	}
+	return root;
+}
+
+node* BinaryTree::inorderPredecessor(node* root) {
+	while (root && root->getRight() != NULL)
+		root = root->getRight();
+	return root;
+}
+
+node* BinaryTree::inorderSuccessor(node* root) {
+	while (root && root->getLeft() != NULL)
+		root = root->getLeft();
+	return root;
+}
+
+node* BinaryTree::removeNode(node* root, int data) {
+	if (root == NULL)
+		return NULL;
+
+	if (root->getLeft() == NULL && root->getRight() == NULL) {
+		if (root == this->getRootNode())
+			this->root = NULL;
+		delete root;
+		return NULL;
+	}
+
+	if (data < root->getData())
+		root->setLeft(removeNode(root->getLeft(), data));
+	else if (data > root->getData())
+		root->setRight(removeNode(root->getRight(), data));
+	else {
+		if (height(root->getLeft()) > height(root->getRight())) {
+			node* temp = inorderPredecessor(root->getLeft());
+			root->setData(temp->getData());
+			root->setLeft(removeNode(root->getLeft(), temp->getData()));
+		}
+		else {
+			node* temp = inorderSuccessor(root->getRight());
+			root->setData(temp->getData());
+			root->setRight(removeNode(root->getRight(), temp->getData()));
+		}
+	}
+	return root;
+}
+
+void BinaryTree::getTree() {
+	node* root = new node;
+	node* current = NULL;
+	node* temp = NULL;
+	std::stack<node*> st;
+
+	std::vector<int> vec1;
+	size_t size = 0;
+
+	std::cout << "Enter the size of traversal:" << std::endl;
+	std::cin >> size;
+
+	std::cout << "Enter the traversal: " << std::endl;
+	for (int i = 0; i < size; i++) {
+		int temp = 0;
+		std::cin >> temp;
+		vec1.push_back(temp);
+	}
+
+	root->setData(vec1.at(0));
+	st.push(root);
+	this->root = root;
+
+	int i = 1;
+
+	while (i < size) {
+		current = new node;
+		current->setData(vec1.at(i));
+		if (vec1.at(i) < root->getData()) {
+			root->setLeft(current);
+			root = current;
+			st.push(current);
+			i++;
+		}
+		else if (vec1.at(i) > root->getData()) {
+			st.pop();
+			if (!st.empty() && vec1.at(i) < st.top()->getData()) {
+				root->setRight(current);
+				st.push(current);
+				root = current;
+				i++;
+			}
+			else {
+				if (!st.empty()) {
+					root = st.top();
+					st.pop();
+				}
+				root->setRight(current);
+				st.push(current);
+				root = current;
+				i++;
+			}
+		}
+	}
 
 }
